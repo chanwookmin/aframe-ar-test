@@ -15,9 +15,9 @@
       </div>
       	<!-- <a-scene embedded arjs='sourceType: image; sourceUrl:../../data/images/armchair.jpg;'> -->
       	<a-scene embedded arjs='sourceType: webcam;'>
-
+           <a-anchor hit-testing-enabled='true'>
           <!-- Using particle system component from Registry. -->
-  <a-entity particle-system="preset: snow; particleCount: 4000"></a-entity>
+          <a-entity particle-system="preset: snow; particleCount: 4000"></a-entity>
 
   <!-- Using animation component from Registry. -->
 
@@ -26,10 +26,11 @@
          <a-entity id="box" geometry="primitive: box; width: 0.7; depth: 0.7; height: 0.5" position="0 1 0" material="color: #00EC00" animation__rotation="property: rotation; to: 0 180 0; loop: true"></a-entity>
          <a-entity id="box" geometry="primitive: box; width: 0.4; depth: 0.4; height: 0.5" position="0 1.5 0" material="color: #53FF53" animation__rotation="property: rotation; to: 0 180 0; loop: true"></a-entity>
 
-  <a-entity light="type: ambient; color: #BBB"></a-entity>
-  <a-entity light="type: directional; color: #AAA" position="0 2 0"></a-entity>
+         <a-entity light="type: ambient; color: #BBB"></a-entity>
+         <a-entity light="type: directional; color: #AAA" position="0 2 0"></a-entity>
    		<!--<a-box position='1 0.5 0' material='opacity: 1;'></a-box>-->
-
+          </a-anchor>
+          <a-camera-static/>
       		<a-marker-camera preset='hiro'></a-marker-camera>
       	</a-scene>
       </body>
