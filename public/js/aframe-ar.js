@@ -5613,8 +5613,8 @@ ARjs.Profile.prototype.reset = function () {
 	}
 	this.defaultMarkerParameters = {
 		type : 'pattern',
-		patternUrl : THREEx.ArToolkitContext.testURL + 'qrcode.patt',
-		//patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro',
+		//patternUrl : THREEx.ArToolkitContext.testURL + 'qrcode.patt',
+		patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro',
 		changeMatrixMode: 'modelViewMatrix',
 	}
 	return this
@@ -5669,8 +5669,8 @@ ARjs.Profile.prototype.defaultMarker = function (trackingBackend) {
 	if( trackingBackend === 'artoolkit' ){
 		this.contextParameters.detectionMode = 'mono'
 		this.defaultMarkerParameters.type = 'pattern'
-		this.defaultMarkerParameters.patternUrl = THREEx.ArToolkitContext.testURL + 'qrcode.patt'
-		//this.defaultMarkerParameters.patternUrl = THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro'
+		//this.defaultMarkerParameters.patternUrl = THREEx.ArToolkitContext.testURL + 'qrcode.patt'
+		this.defaultMarkerParameters.patternUrl = THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro'
 	}else if( trackingBackend === 'aruco' ){
 		this.contextParameters.detectionMode = 'mono'
 		this.defaultMarkerParameters.type = 'barcode'
@@ -8190,17 +8190,18 @@ AFRAME.registerComponent('arjs-anchor', {
 			arProfile.changeMatrixMode(_this.data.changeMatrixMode)
 
 			// honor this.data.preset
+			//changed by chanwook
 			if( _this.data.preset === 'qrcode' ){
 				arProfile.defaultMarkerParameters.type = 'pattern'
 				arProfile.defaultMarkerParameters.patternUrl = THREEx.ArToolkitContext.testURL+'qrcode.patt'
 				arProfile.defaultMarkerParameters.markersAreaEnabled = false
 			}
-
-			//if( _this.data.preset === 'hiro' ){
-				//arProfile.defaultMarkerParameters.type = 'pattern'
-				//arProfile.defaultMarkerParameters.patternUrl = THREEx.ArToolkitContext.baseURL+'examples/marker-training/examples/pattern-files/pattern-hiro.patt'
-				//arProfile.defaultMarkerParameters.markersAreaEnabled = false
-			//}
+			///////
+			else if( _this.data.preset === 'hiro' ){
+				arProfile.defaultMarkerParameters.type = 'pattern'
+				arProfile.defaultMarkerParameters.patternUrl = THREEx.ArToolkitContext.baseURL+'examples/marker-training/examples/pattern-files/pattern-hiro.patt'
+				arProfile.defaultMarkerParameters.markersAreaEnabled = false
+			}
 			else if( _this.data.preset === 'kanji' ){
 				arProfile.defaultMarkerParameters.type = 'pattern'
 				arProfile.defaultMarkerParameters.patternUrl = THREEx.ArToolkitContext.baseURL+'examples/marker-training/examples/pattern-files/pattern-kanji.patt'
