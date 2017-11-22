@@ -1,5 +1,4 @@
 <html>
-
 <!-- AR.js by @jerome_etienne - github: https://github.com/jeromeetienne/ar.js - info: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf -->
       <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
 
@@ -17,8 +16,20 @@
       	<!-- <a-scene embedded arjs='sourceType: image; sourceUrl:../../data/images/armchair.jpg;'> -->
       	<a-scene embedded arjs='sourceType: webcam;'>
 
-      		<a-sphere position="0 0.5 0" radius="0.5" color="#EF2D5E"></a-sphere>
-      		<a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" color="#7BC8A4"></a-plane>
+          <!-- Using particle system component from Registry. -->
+  <a-entity particle-system="preset: snow; particleCount: 4000"></a-entity>
+
+  <!-- Using animation component from Registry. -->
+
+         <a-entity id="box" geometry="primitive: box; width: 0.3; depth: 0.3; height: 0.5" position="0 1 0" material="color: #3F301D" animation__rotation="property: rotation; to: 0 180 0; loop: true"></a-entity>
+  <a-entity id="box" geometry="primitive: box; width: 1; depth: 1; height: 0.5" position="0 1.5 0" material="color: #00bb00" animation__rotation="property: rotation; to: 0 180 0; loop: true"></a-entity>
+         <a-entity id="box" geometry="primitive: box; width: 0.7; depth: 0.7; height: 0.5" position="0 2 0" material="color: #00EC00" animation__rotation="property: rotation; to: 0 180 0; loop: true"></a-entity>
+         <a-entity id="box" geometry="primitive: box; width: 0.4; depth: 0.4; height: 0.5" position="0 2.5 0" material="color: #53FF53" animation__rotation="property: rotation; to: 0 180 0; loop: true"></a-entity>
+         <a-entity id="sphere" geometry="primitive: box; width: 0.3; depth: 0.3; height: 0.5" position="0 1 0" material="color: #3F301D" animation__rotation="property: rotation; to: 0 180 0; loop: true"></a-entity>
+
+  <a-entity light="type: ambient; color: #BBB"></a-entity>
+  <a-entity light="type: directional; color: #AAA" position="0 2 0"></a-entity>
+   		<!--<a-box position='1 0.5 0' material='opacity: 1;'></a-box>-->
 
       		<a-marker-camera preset='hiro'></a-marker-camera>
       	</a-scene>
